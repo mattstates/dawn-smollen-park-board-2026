@@ -1,5 +1,5 @@
 /**
- * DAWN SMOLLEN FOR PARK BOARD 2026 - MAIN CONTROLLER
+ * DAWN SMOLLEN FOR PARK BOARD AREA 2 - MAIN CONTROLLER
  */
 
 document.addEventListener('DOMContentLoaded', () => {
