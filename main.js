@@ -31,11 +31,20 @@ function switchTab(tabName) {
     activeBtn.classList.add('active');
   }
 
-  // Update URL Hash
-  if (history.pushState) {
-    history.pushState(null, null, '#' + tabName);
+  // Update URL Hash or Clean Root
+  const rootPath = window.location.pathname.replace(/index\.html$/, '');
+  if (tabName === 'about') {
+    if (history.pushState) {
+      history.pushState(null, document.title, rootPath || '/');
+    } else {
+      location.hash = '';
+    }
   } else {
-    location.hash = '#' + tabName;
+    if (history.pushState) {
+      history.pushState(null, null, '#' + tabName);
+    } else {
+      location.hash = '#' + tabName;
+    }
   }
 
   // Close mobile nav if open
@@ -66,11 +75,14 @@ function initTabsFromHash() {
 }
 
 /**
- * Go to Site Root (clears hash from URL and resets to default view)
+ * Go to Site Root / (clears hash from URL and resets to home view)
  * @param {Event} e
  */
 function goToRoot(e) {
-  if (e) e.preventDefault();
+  if (e) {
+    e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
 
   // Hide all tab panes
   const allPanes = document.querySelectorAll('.tab-pane');
@@ -87,14 +99,15 @@ function goToRoot(e) {
   const aboutBtn = document.querySelector('.nav-tab[data-tab="about"]');
   if (aboutBtn) aboutBtn.classList.add('active');
 
-  // Clear hash from URL and reset to clean site root
+  // Set URL strictly to clean site root '/'
+  const rootPath = window.location.pathname.replace(/index\.html$/, '');
   if (window.history.pushState) {
-    window.history.pushState(null, document.title, window.location.pathname + window.location.search);
+    window.history.pushState(null, document.title, rootPath || '/');
   } else {
     window.location.hash = '';
   }
 
-  // Scroll smoothly to top of window
+  // Scroll smoothly to top of page
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   // Close mobile nav if open
