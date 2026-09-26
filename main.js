@@ -66,6 +66,47 @@ function initTabsFromHash() {
 }
 
 /**
+ * Go to Site Root (clears hash from URL and resets to default view)
+ * @param {Event} e
+ */
+function goToRoot(e) {
+  if (e) e.preventDefault();
+
+  // Hide all tab panes
+  const allPanes = document.querySelectorAll('.tab-pane');
+  allPanes.forEach(pane => pane.classList.remove('active'));
+
+  // Deactivate all nav tab buttons
+  const allTabs = document.querySelectorAll('.nav-tab');
+  allTabs.forEach(btn => btn.classList.remove('active'));
+
+  // Activate About pane & nav button
+  const aboutPane = document.getElementById('aboutTab');
+  if (aboutPane) aboutPane.classList.add('active');
+  
+  const aboutBtn = document.querySelector('.nav-tab[data-tab="about"]');
+  if (aboutBtn) aboutBtn.classList.add('active');
+
+  // Clear hash from URL and reset to clean site root
+  if (window.history.pushState) {
+    window.history.pushState(null, document.title, window.location.pathname + window.location.search);
+  } else {
+    window.location.hash = '';
+  }
+
+  // Scroll smoothly to top of window
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Close mobile nav if open
+  const navMenu = document.getElementById('navMenu');
+  if (navMenu && navMenu.classList.contains('mobile-open')) {
+    navMenu.classList.remove('mobile-open');
+  }
+
+  return false;
+}
+
+/**
  * Mobile Navigation Toggle
  */
 function initNavigation() {
