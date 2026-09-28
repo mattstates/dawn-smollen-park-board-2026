@@ -901,50 +901,47 @@ a:hover {
   line-height: 1.75;
 }
 
-/* ENDORSEMENTS SECTION (INLINE ICONS, UNSTYLED PURE TYPOGRAPHY ENTRIES, MARGIN BETWEEN GROUPS) */
+/* ENDORSEMENTS SECTION (FULL-WIDTH HORIZONTAL ROWS LAYOUT) */
 .endorsements-full-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 36px; /* Clear vertical & horizontal margin between endorsement groups */
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Generous vertical space between endorsement category row sections */
 }
 
 .endorsement-category-card {
+  width: 100%;
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
-  border-top: 4px solid var(--secondary-green);
+  border-left: 5px solid var(--secondary-green);
   border-radius: var(--radius-md);
-  padding: 26px 28px;
+  padding: 28px 32px;
   box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
   transition: var(--transition-fast);
-  margin-bottom: 12px;
 }
 
 .endorsement-category-card:nth-child(2n) {
-  border-top-color: var(--primary-maroon);
+  border-left-color: var(--primary-maroon);
 }
 
 .endorsement-category-card:nth-child(3n) {
-  border-top-color: var(--accent-gold);
+  border-left-color: var(--accent-gold);
 }
 
 .endorsement-category-card:hover {
-  transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
 }
 
 .endorsement-category-header {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border-light);
 }
 
 .endorsement-category-header h3 {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   color: var(--primary-maroon);
-  line-height: 1.3;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -955,9 +952,9 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: var(--secondary-green-light);
   color: var(--secondary-green);
   flex-shrink: 0;
@@ -973,40 +970,58 @@ a:hover {
   color: var(--accent-gold);
 }
 
-/* Clean, unstyled typography list for endorsement entries */
+/* Endorsement people entries arranged in a clean horizontal grid inside each full-width row */
 .endorsement-people-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px 32px;
 }
 
 .person-entry {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 2px 0;
+  gap: 3px;
 }
 
 .person-name {
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   color: var(--text-primary);
   font-weight: 700;
   line-height: 1.3;
 }
 
 .person-title {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.35;
 }
 
+/* SUPPORT DAWN ENDORSEMENT BANNER */
+.endorsements-banner-box {
+  margin-top: 28px;
+  margin-bottom: 36px; /* Explicit vertical space separating from Contact Dawn section below */
+  background-color: var(--accent-gold-light);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  text-align: center;
+  color: var(--primary-maroon);
+  font-weight: 600;
+  transition: var(--transition-fast);
+}
+
+.endorsements-banner-box:hover {
+  background-color: var(--accent-gold);
+  color: #FFFFFF;
+}
+
 /* CONTACT DAWN SECTION */
 .contact-dawn-box {
-  margin-top: 36px; /* Clear vertical space above Contact Dawn section separating from Endorsements banner */
+  margin-top: 36px; /* Generous vertical space separating Contact Dawn section from Endorsements banner */
   background: var(--bg-surface);
   border: 1px solid var(--border-light);
-  border-left: 4px solid var(--secondary-green);
-  padding: 26px 28px;
+  border-left: 5px solid var(--secondary-green);
+  padding: 28px 30px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
 }
@@ -1014,36 +1029,42 @@ a:hover {
 .contact-buttons-grid {
   display: flex;
   flex-direction: column;
-  gap: 14px; /* Vertical space separating email and facebook links */
-  margin-top: 14px;
+  gap: 16px; /* Explicit vertical gap between email and facebook cards */
+  margin-top: 18px;
 }
 
 .contact-link-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 16px 20px;
   background: var(--bg-main);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  text-decoration: none;
   transition: var(--transition-fast);
+  margin-bottom: 4px;
+}
+
+.contact-link-item:last-child {
+  margin-bottom: 0;
 }
 
 .contact-link-item:hover {
   border-color: var(--secondary-green);
   color: var(--secondary-green);
   background: #FFFFFF;
-  transform: translateX(3px);
+  transform: translateX(4px);
   box-shadow: var(--shadow-subtle);
 }
 
 .contact-link-content {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .contact-link-item .external-icon {
