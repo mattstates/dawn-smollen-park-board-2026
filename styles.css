@@ -882,7 +882,7 @@ a:hover {
   border-left: 6px solid var(--primary-maroon);
   border-radius: var(--radius-md);
   padding: 36px 42px;
-  margin-bottom: 75px; /* Increased vertical space before About Dawn section */
+  margin-bottom: 64px; /* Increased vertical space (~32px additional margin) before About section */
   box-shadow: var(--shadow-card);
 }
 
@@ -901,11 +901,11 @@ a:hover {
   line-height: 1.75;
 }
 
-/* ENDORSEMENTS SECTION (NO BULLETS, ELEVATED DESIGN) */
+/* ENDORSEMENTS SECTION (INLINE ICONS, UNSTYLED PURE TYPOGRAPHY ENTRIES, MARGIN BETWEEN GROUPS) */
 .endorsements-full-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 36px; /* Clear vertical & horizontal margin between endorsement groups */
 }
 
 .endorsement-category-card {
@@ -913,13 +913,12 @@ a:hover {
   border: 1px solid var(--border-light);
   border-top: 4px solid var(--secondary-green);
   border-radius: var(--radius-md);
-  padding: 28px;
+  padding: 26px 28px;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
   transition: var(--transition-fast);
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 12px;
 }
 
 .endorsement-category-card:nth-child(2n) {
@@ -931,106 +930,129 @@ a:hover {
 }
 
 .endorsement-category-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
 }
 
 .endorsement-category-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--border-light);
 }
 
-.category-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--secondary-green-light);
-  color: var(--secondary-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  box-shadow: inset 0 0 0 1px rgba(13, 138, 94, 0.15);
-}
-
-.endorsement-category-card:nth-child(2n) .category-icon-box {
-  background: var(--primary-maroon-light);
-  color: var(--primary-maroon);
-  box-shadow: inset 0 0 0 1px rgba(122, 22, 43, 0.15);
-}
-
-.endorsement-category-card:nth-child(3n) .category-icon-box {
-  background: var(--accent-gold-light);
-  color: var(--accent-gold);
-  box-shadow: inset 0 0 0 1px rgba(198, 146, 20, 0.15);
-}
-
 .endorsement-category-header h3 {
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: 1.2rem;
   color: var(--primary-maroon);
   line-height: 1.3;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-ul.endorsement-list,
-ul.endorsement-list li,
-.endorsement-list,
-.endorsement-item {
-  list-style: none !important;
-  list-style-type: none !important;
-  list-style-image: none !important;
-  padding-left: 0 !important;
-  margin-left: 0 !important;
+.inline-category-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--secondary-green-light);
+  color: var(--secondary-green);
+  flex-shrink: 0;
 }
 
-.endorsement-list {
+.endorsement-category-card:nth-child(2n) .inline-category-icon {
+  background: var(--primary-maroon-light);
+  color: var(--primary-maroon);
+}
+
+.endorsement-category-card:nth-child(3n) .inline-category-icon {
+  background: var(--accent-gold-light);
+  color: var(--accent-gold);
+}
+
+/* Clean, unstyled typography list for endorsement entries */
+.endorsement-people-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
 }
 
-.endorsement-item {
+.person-entry {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  padding: 12px 16px;
-  background: var(--bg-main);
-  border-radius: var(--radius-sm);
+  gap: 2px;
+  padding: 2px 0;
+}
+
+.person-name {
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.person-title {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* CONTACT DAWN SECTION */
+.contact-dawn-box {
+  margin-top: 36px; /* Clear vertical space above Contact Dawn section separating from Endorsements banner */
+  background: var(--bg-surface);
   border: 1px solid var(--border-light);
-  border-left: 3px solid transparent;
+  border-left: 4px solid var(--secondary-green);
+  padding: 26px 28px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.contact-buttons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* Vertical space separating email and facebook links */
+  margin-top: 14px;
+}
+
+.contact-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
   transition: var(--transition-fast);
 }
 
-.endorsement-item:hover {
-  border-color: var(--border-light);
-  border-left-color: var(--secondary-green);
+.contact-link-item:hover {
+  border-color: var(--secondary-green);
+  color: var(--secondary-green);
   background: #FFFFFF;
-  transform: translateX(4px);
+  transform: translateX(3px);
   box-shadow: var(--shadow-subtle);
 }
 
-.endorsement-category-card:nth-child(2n) .endorsement-item:hover {
-  border-left-color: var(--primary-maroon);
+.contact-link-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.endorsement-category-card:nth-child(3n) .endorsement-item:hover {
-  border-left-color: var(--accent-gold);
-}
-
-.endorsement-item strong {
-  font-size: 0.98rem;
-  color: var(--text-primary);
-  font-weight: 700;
-}
-
-.endorsement-item span {
-  font-size: 0.85rem;
+.contact-link-item .external-icon {
   color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+
+.contact-link-item:hover .external-icon {
+  color: var(--secondary-green);
 }
 
 /* Responsive */
