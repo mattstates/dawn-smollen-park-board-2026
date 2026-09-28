@@ -1076,6 +1076,204 @@ a:hover {
   color: var(--secondary-green);
 }
 
+/* Inline content links in text */
+.inline-content-link {
+  color: var(--secondary-green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(13, 138, 94, 0.4);
+  text-underline-offset: 3px;
+  transition: var(--transition-fast);
+}
+
+.inline-content-link:hover {
+  color: var(--primary-maroon);
+  text-decoration-color: var(--primary-maroon);
+}
+
+/* JOINT USE AGREEMENTS UNLISTED TAB STYLING */
+.joint-use-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.joint-use-hero-card {
+  background: radial-gradient(circle at 95% 10%, var(--secondary-green-light) 0%, transparent 60%),
+              var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-left: 6px solid var(--secondary-green);
+  border-radius: var(--radius-md);
+  padding: 32px 38px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.quote-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--secondary-green-light);
+  color: var(--secondary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.joint-use-hero-card blockquote {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--primary-maroon);
+  line-height: 1.65;
+  margin: 0 0 14px 0;
+}
+
+.quote-author-tag {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--secondary-green);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.joint-use-content-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 36px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.joint-use-block h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--primary-maroon);
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.joint-use-block h3 svg {
+  color: var(--secondary-green);
+  flex-shrink: 0;
+}
+
+.joint-use-block p {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.joint-use-block p:last-child {
+  margin-bottom: 0;
+}
+
+.joint-use-bullet-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 14px 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.joint-use-bullet-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.joint-use-bullet-list li::before {
+  content: "•";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  color: var(--secondary-green);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.joint-use-docs-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-left: 5px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.docs-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--primary-maroon);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.docs-card-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.docs-links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doc-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.doc-link-item:hover {
+  border-color: var(--secondary-green);
+  color: var(--secondary-green);
+  transform: translateX(3px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.doc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.doc-info strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.doc-info span {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.joint-use-footer-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
 /* Responsive */
 @media (max-width: 992px) {
   .hero-grid, .about-container, .news-container, .support-layout, .day-one-grid {

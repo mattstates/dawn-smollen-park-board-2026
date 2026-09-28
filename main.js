@@ -67,7 +67,7 @@ function switchTab(tabName) {
  */
 function initTabsFromHash() {
   const hash = window.location.hash.replace('#', '');
-  const validTabs = ['about', 'priorities', 'endorsements', 'news', 'support', 'map'];
+  const validTabs = ['about', 'priorities', 'endorsements', 'news', 'support', 'map', 'joint-use'];
   
   if (hash && validTabs.includes(hash)) {
     switchTab(hash);
