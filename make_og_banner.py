@@ -55,7 +55,7 @@ def create_og_banner():
     y_cursor += 36
 
     # District Title
-    draw.text((60, y_cursor), "Director, Rancho Simi Recreation & Park District", fill="#334155", font=font_district)
+    draw.text((60, y_cursor), "Rancho Simi Recreation & Park Board • Area 2", fill="#334155", font=font_district)
     y_cursor += 54
 
     # FPPC & Paid For Box
